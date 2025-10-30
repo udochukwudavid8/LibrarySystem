@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.library.frontend.controller.BookController">
+
+    <!-- Top: Search and Refresh -->
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Search:"/>
+            <TextField fx:id="searchField" promptText="Enter title or author"/>
+            <Button text="Search" onAction="#handleSearch"/>
+            <Button text="Refresh" onAction="#refreshTable"/>
+        </HBox>
+    </top>
+
+    <!-- Center: TableView -->
+    <center>
+        <TableView fx:id="bookTable" prefHeight="400" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="colTitle" text="Title" prefWidth="200"/>
+                <TableColumn fx:id="colAuthor" text="Author" prefWidth="150"/>
+                <TableColumn fx:id="colIsbn" text="ISBN" prefWidth="100"/>
+                <TableColumn fx:id="colPublishDate" text="Publish Date" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- Bottom: Pagination + Form -->
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Pagination controls -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="prevButton" text="Previous" onAction="#prevPage"/>
+                <Label fx:id="pageLabel" text="Page 1"/>
+                <Button fx:id="nextButton" text="Next" onAction="#nextPage"/>
+            </HBox>
+
+            <!-- Add / Update / Delete form -->
+            <GridPane hgap="10" vgap="5">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints halignment="LEFT"/>
+                </columnConstraints>
+
+                <!-- Title -->
+                <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" spacing="2">
+                    <TextField fx:id="titleField"/>
+                    <Label fx:id="titleErrorLabel" textFill="RED" style="-fx-font-size: 10px;"/>
+                </VBox>
+
+                <!-- Author -->
+                <Label text="Author:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <VBox GridPane.rowIndex="1" GridPane.columnIndex="1" spacing="2">
+                    <TextField fx:id="authorField"/>
+                    <Label fx:id="authorErrorLabel" textFill="RED" style="-fx-font-size: 10px;"/>
+                </VBox>
+
+                <!-- ISBN -->
+                <Label text="ISBN:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <VBox GridPane.rowIndex="2" GridPane.columnIndex="1" spacing="2">
+                    <TextField fx:id="isbnField"/>
+                    <Label fx:id="isbnErrorLabel" textFill="RED" style="-fx-font-size: 10px;"/>
+                </VBox>
+
+                <!-- Publish Date -->
+                <Label text="Publish Date:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <VBox GridPane.rowIndex="3" GridPane.columnIndex="1" spacing="2">
+                    <DatePicker fx:id="publishDateField"/>
+                    <Label fx:id="publishDateErrorLabel" textFill="RED" style="-fx-font-size: 10px;"/>
+                </VBox>
+
+                <!-- Buttons -->
+                <HBox spacing="10" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                    <Button text="Add" onAction="#addBook"/>
+                    <Button text="Update" onAction="#updateBook"/>
+                    <Button text="Delete" onAction="#deleteBook"/>
+                </HBox>
+
+            </GridPane>
+        </VBox>
+    </bottom>
+
+</BorderPane>
