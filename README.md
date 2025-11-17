@@ -24,19 +24,5 @@ Ensure it matches your backend URL and port.
 4. Build and Run
    mvn clean install
    mvn javafx:run
-
-Usage
-Validation
-Add Book: Fill the fields and click Add.
-Update Book: Select a book, edit fields, click Update.
-Delete Book: Select a book, click Delete.
-Search: Enter keyword,auto search, press Enter or click Search.
-Pagination: Use Prev / Next buttons.
-Refresh Table: Click Refresh to reload all books.
-Backend validates title, author, ISBN, and publish date.
-Errors are shown next to respective fields.
-
-Notes
-Start the backend first before launching the frontend.
-Frontend logs are printed using Logger for debugging.
-Ensure backend API URLs and ports match the frontend configuration.
+# LibrarySystem
+Front end for the management system
